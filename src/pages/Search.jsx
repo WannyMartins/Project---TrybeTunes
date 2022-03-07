@@ -96,10 +96,10 @@ class Search extends React.Component {
       </form>
     );
     return (
-      <section>
+      <div data-testid="page-search">
         <Header />
         { loading ? <Carregando /> : resultado }
-      </section>
+      </div>
     );
   }
 }
