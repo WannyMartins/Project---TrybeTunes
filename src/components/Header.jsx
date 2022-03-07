@@ -40,7 +40,7 @@ class Header extends React.Component {
           </li>
           <li>
             <Link to="/profile" data-testid="link-to-profile" />
-            Profile
+            Perfil
           </li>
         </ul>
       </div>
