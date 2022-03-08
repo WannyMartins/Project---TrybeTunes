@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Carregando from './Carregando';
+import '../css/Login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -51,19 +52,21 @@ class Login extends React.Component {
   render() {
     const { name, loading, redirect } = this.state;
     const formulario = (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="login">
         <input
           type="text"
           data-testid="login-name-input"
           name="name"
           value={ name }
           onChange={ this.handleChange }
+          className="input-login"
         />
         <button
           type="button"
           data-testid="login-submit-button"
           disabled={ this.isDisabled() }
           onClick={ this.entrar }
+          className="button-entrar"
         >
           Entrar
         </button>
