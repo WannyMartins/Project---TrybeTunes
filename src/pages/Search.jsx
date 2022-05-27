@@ -12,32 +12,32 @@ class Search extends React.Component {
       retornoApi: [],
       loading: false,
       inputValue: false,
+      artista: '',
     };
   }
 
-  handleChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState({
+  handleChange = ({ target }) => { // Desconstrui o target para não usar event.target
+    const { value } = target; // pega o name e o value do input que está lá no render, input de pesquisas;
+    this.setState({ // pesquisa e artista recebe value do input para gerar a pesquisa,
       artista: value,
-      [name]: value,
+      pesquisa: value,
     });
   }
 
   pesquisar = () => {
     const { pesquisa } = this.state;
-    const inputValue = pesquisa;
     this.setState({
-      inputValue,
-      loading: true,
-      pesquisa: '',
+      inputValue: pesquisa, // aqui atribuo a pesquisa a chave do input value para ser pesquisado,
+      loading: true, // enquanto espera o retorno da api aparece carregando por isso setei o estado de loading para true
+      pesquisa: '', // pesquisa volta novamente a receber o valor de vazio para limpar o input de pesquisa
     }, () => {
-      this.respostaApi();
+      this.respostaApi(); // a função pesquisar recebe a função que se conecta a api como parametro para esperar a resposta da api antes de finalizar o carregando.
     });
   }
 
   isDisabled = () => {
     const { pesquisa } = this.state;
-    const numbMini = 2;
+    const numbMini = 2;// aqui peg o valor da pesquisa no onchange e a medida que vai aparecendo fica desbilitado até chegar no minimo de 2 caracteres para habilitar o botao;
     return pesquisa.length < numbMini;
   }
 

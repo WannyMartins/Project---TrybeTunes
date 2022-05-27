@@ -42,7 +42,7 @@ class MusicCard extends React.Component {
             type="checkbox"
             id={ name }
             data-testid={ `checkbox-music-${trackId}` }
-            checked={ checked.some((musica) => musica.trackId === trackId) }
+            checked={ checked.filter((musica) => musica.trackId === trackId) }
             onClick={ this.addFavoritas }
           />
         </label>

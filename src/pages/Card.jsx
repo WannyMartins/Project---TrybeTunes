@@ -14,7 +14,6 @@ class Card extends React.Component {
     } = this.props;
     return (
       <div>
-        <img alt="Imagem do album da banda" src={ artworkUrl100 } />
         <h1>{ collectionName }</h1>
         <h3>{ artistName }</h3>
         <p>{ releaseDate }</p>
@@ -23,7 +22,7 @@ class Card extends React.Component {
           data-testid={ `link-to-album-${collectionId}` }
           to={ { pathname: `/album/${collectionId}`, id: collectionId } }
         >
-          Saiba Mais
+          <img alt="Imagem do album da banda" src={ artworkUrl100 } />
         </Link>
       </div>
     );
